@@ -2,9 +2,42 @@
 <html>
   <head>
     <title>Example</title>
-    <!-- INCLUDE JQUERY AND CUSTOM JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/forms.js"></script>
   </head>
   <body>
-    <p>Example goes here...</p>
+    <div id="register">
+      <h2>Register/Login</h2>
+
+      <form id="register-form">
+        <lable for="name">Name:</lable>
+        <input type="text" id="name" name="name">
+
+        <lable for="email">Email:</lable>
+        <input type="text" id="email" name="email">
+
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+
+    <div id="upload-file">
+      <h2>Upload File</h2>
+      
+      <form id="upload-form">
+        <label for="myfile">Select a file:</label>
+        <input type="file" id="myfile" name="myfile"><br><br>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+
+    <div id="thank-you">
+      <h2>Thank you!</h2>
+      
+      <p>
+        Check your email for a link to your uploaded file.
+      </p>
+      
+      <input name="upload-again" type="submit" value="Submit">
+    </div>
   </body>
 </html>
