@@ -7,6 +7,12 @@ $(document).ready(function () {
   var $registerForm = $('#register');
   var $uploadForm = $('#upload-file');
   var $thankYou = $('#thank-you')
+  var alertUpload = "<div id='alert-upload' class='mt-3 alert alert-danger alert-dismissible fade show' role='alert'>" + 
+            "Unable to register/login, please try again. <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" +
+            "</div>"
+  var uploadAlert = "<div id='alert-upload' class='mt-3 alert alert-danger alert-dismissible fade show' role='alert'>" + 
+              "Unable to upload the file, please try again. <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" +
+              "</div>"
 
   $uploadForm.hide();
   $thankYou.hide();
@@ -52,13 +58,13 @@ $(document).ready(function () {
             $uploadForm.show();
           }
         }).catch(err => {
-           console.log('failed registration')
+           $('.container').append(alertUpload);
         });
       } else {
-        console.log('failed registration')
+        $('.container').append(alertUpload);
       }
     }).catch(err => {
-     console.log('failed registration')
+     $('.container').append(alertUpload);
     });
 
     return false;
@@ -112,24 +118,27 @@ $(document).ready(function () {
           }
         }).then(resp => {
           if (resp) {
+            $('input[name=myfile]').val('');
             $uploadForm.hide();
             $thankYou.show();
           }
         }).catch(err => {
           console.log('failed PUT on signedPutUrl');
+          $('.container').append(uploadAlert);
         });
       } else {
         console.log('no signedPutUrl present');
+        $('.container').append(uploadAlert);
       }
     }).catch(err => {
       console.log('failed post upload');
+      $('.container').append(uploadAlert);
     });
 
     return false;
   });
 
-  $("input[name='upload-again']").on("click", function(){
-    console.log('hello')
+  $("button[name='upload-again']").on("click", function(){
     $thankYou.hide();
     $uploadForm.show();
   });
