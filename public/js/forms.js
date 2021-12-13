@@ -85,7 +85,7 @@ $(document).ready(function () {
 
       file = $formUpload[0].files[0];
 
-      var filename = Date.now().toString() + '-' + file.name;
+      var filename = Date.now().toString() + '.' + file.name;
 
       if (typeof window.slugify === 'function') {
         filename = window.slugify(filename, { remove: /[#&*+~()'"!:@]/g });
@@ -105,12 +105,12 @@ $(document).ready(function () {
         'Authorization': `Bearer ${authToken}`,
       }
     }).then(resp => resp.json()).then(resp => {
-      console.log('successful upload', resp);
       const { _id, signedPutUrl, signedGetUrl } = resp;
       if (signedPutUrl) {
+        file['path'] = file.name;
         fetch(signedPutUrl, {
           method: 'PUT',
-          body: JSON.stringify(submitBody),
+          body: file,
           headers: {
             'Content-Type': submitBody.filetype,
             'Content-Length': submitBody.filesize,
@@ -118,6 +118,18 @@ $(document).ready(function () {
           }
         }).then(resp => {
           if (resp) {
+            fetch(apiUrl + `/posts/${_id}/submit`, {
+              method: 'POST',
+              headers: {
+                'Authorization': `Bearer ${authToken}`,
+              }
+            }).then(resp => {
+              console.log('post has been submitted!', resp)
+            }).catch(err => {
+              console.log('failed PUT on signedPutUrl');
+              $('.container').append(uploadAlert);
+            });
+
             $('input[name=myfile]').val('');
             $uploadForm.hide();
             $thankYou.show();
