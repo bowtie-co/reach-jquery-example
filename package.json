@@ -1,0 +1,23 @@
+{
+  "name": "reach-jquery-example",
+  "version": "1.0.0",
+  "description": "Reach jQuery Example",
+  "main": "index.js",
+  "scripts": {
+    "start": "serve public",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bowtie-co/reach-jquery-example.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bowtie-co/reach-jquery-example/issues"
+  },
+  "homepage": "https://github.com/bowtie-co/reach-jquery-example#readme",
+  "devDependencies": {
+    "serve": "^13.0.2"
+  }
+}
