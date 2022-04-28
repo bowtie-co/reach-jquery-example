@@ -12,7 +12,7 @@
     <div class="container p-5">
       <div id="register" class="row">
         <h2>Register/Login</h2>
-      
+
         <form id="register-form">
           <div class="mb-3">
             <label for="name" class="form-label">Name:</label>
@@ -23,14 +23,19 @@
             <label for="email" class="form-label">Email:</label>
             <input type="email" class="form-control" id="email" name="email" required>
           </div>
-      
+
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone:</label>
+            <input type="text" class="form-control" id="phone" name="phone" required>
+          </div>
+
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
-      
+
       <div id="upload-file" class="row">
         <h2>Upload File</h2>
-      
+
         <form id="upload-form">
 
           <div class="mb-3">
@@ -41,14 +46,14 @@
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
-      
+
       <div id="thank-you">
         <h2>Thank you!</h2>
-      
+
         <p>
           Check your email for a link to your uploaded file.
         </p>
-      
+
         <button type="submit" class="btn btn-primary" name="upload-again">Upload Another</button>
       </div>
     </div>

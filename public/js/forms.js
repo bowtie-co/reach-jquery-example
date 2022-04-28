@@ -21,7 +21,7 @@ $(document).ready(function () {
     e.preventDefault();
 
     var formData = {};
-    var formFields = [ 'name', 'email' ];
+    var formFields = [ 'name', 'email', 'phone' ];
 
     for (var i = 0; i < formFields.length; i++) {
       var fieldName = formFields[i];
@@ -58,13 +58,13 @@ $(document).ready(function () {
             $uploadForm.show();
           }
         }).catch(err => {
-           $('.container').append(alertUpload);
+          $('.container').append(alertUpload);
         });
       } else {
         $('.container').append(alertUpload);
       }
     }).catch(err => {
-     $('.container').append(alertUpload);
+      $('.container').append(alertUpload);
     });
 
     return false;
