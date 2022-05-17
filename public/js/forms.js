@@ -1,6 +1,6 @@
 $(document).ready(function () {
-  // var apiUrl = 'https://reach-api.bowtie.dev';
-  var apiUrl = 'https://api.staging.dispatch.social';
+  var apiUrl = 'https://reach-api.bowtie.dev';
+  // var apiUrl = 'https://api.staging.dispatch.social';
   var registerUserUrl = apiUrl + '/users';
   var loginUserUrl = apiUrl + '/users/login';
   var postFileUrl = apiUrl + '/posts';
